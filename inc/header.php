@@ -12,5 +12,9 @@
 <body>
 
   <div class="main header ">
+      <header>
+        <h1>  Voici nos films  </h1>
 
-  </div>
+        <a href="connexion.php"> connexion </a>
+        <a href="inscription.php"> inscription </a>
+      </header>
