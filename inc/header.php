@@ -7,4 +7,7 @@
     <title>Movie Anaïs</title>
 </head>
 <body>
-    
+
+  <div class="main header ">
+
+  </div>
