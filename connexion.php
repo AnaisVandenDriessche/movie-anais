@@ -58,15 +58,11 @@ if (!empty($_POST['submitted'])){
     if(count($error) == 0){
         $success = true;
 
-
-    } 
-   
+    }    
 }
 
 
 include('inc/header.php');
-
-
 ?>
 <div class="container">
         <h1>Connexion</h1>
