@@ -1,38 +1,41 @@
-<?php include('inc/pdo.php');?>
-<?php include('inc/function.php');  ?>
+<?php 
+include('inc/pdo.php');
+include('inc/function.php'); 
 
-<?php include('inc/header.php'); ?>
-
-<?php
-$sql = "SELECT * FROM movies_full";
-$query = $pdo->prepare($sql);
-// exécuté la requete
-$query ->execute();
-// Puis sous quel format on la veut
-$movies = $query->fetchAll();
-
-?> 
-
-<!-- <?php
-// echo '<pre>';
-// print_r($movies);
-// echo '</pre>';
- ?> -->
+	// Requette 
+	$sql = "SELECT * FROM movies_full";
+	$query = $pdo->prepare($sql);
+	// exécuté la requete
+	$query ->execute();
+	// Puis sous quel format on la veut
+	$movies = $query->fetchAll();
 
 
-	<?php foreach ($movies as $movie) { ?>
+// Header
+include('inc/header.php'); 
+?>
 
+ 	<!-- Boucle pour afficher films -->
 	<div class="container">
 		<div class="row">
-			<div class="col-4">
-				
-				<a href="details.php?id=<?php echo $movie['id']; ?>"><img src="posters/<?php echo $movie['id'] ?>.jpg" alt=""></a>
-				<p class="title"> <?php echo $movie ['title'];?> </p>
-			</div>
+				<?php foreach ($movies as $movie) { ?>
+					<div class="col-3">
+						<a href="details.php?id=<?php echo $movie['id']; ?>">
+							<img src="posters/<?php echo $movie['id'] ?>.jpg" alt="<?php echo $movie['title'] ?>">
+						</a>
+						<p class="title"> <?php echo $movie ['title'];?> </p>
+					</div>
+					<!-- end div col-3 -->
+				<?php }?>
 		</div>
+		<!-- end div row -->
+		<!-- Lien Recharge film -->
+		<a href="index.php">+ de films</a>
+		<a href="#">Filtre</a>
+		
 	</div>
-	<?php }
-	?>
+	<!-- end div container -->
+	
 
-
+<!-- Footer -->
 <?php include('inc/footer.php') ?>
