@@ -78,8 +78,6 @@ if(!empty($_POST['submitted'])){
         }
 
 
-
-
     // if pas d'erreur
     if(count($error) == 0){
         $success = true;

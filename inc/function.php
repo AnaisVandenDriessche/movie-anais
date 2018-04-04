@@ -54,7 +54,6 @@ function validateChamp ($value,$error,$key,$min,$max)
         $error = validateChamp($pseudo,$error,'pseudo',3,20);
 */
 
-
 // ===========================
 // Créer un random
 function generateRandomString($length = 10) {
