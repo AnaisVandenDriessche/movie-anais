@@ -3,18 +3,20 @@ include('inc/pdo.php');
 include('inc/function.php');
 
 
-
 include('inc/header.php'); 
+?>
+<a href="index.php">Retour vers page accueil</a>
 
-
-if(!empty($_GET['id']) && is_numeric($_GET['id'])) {
+ 
+<?php
+if(!empty($_GET['slug']))  {
 $sql = "SELECT * FROM movies_full";
 $query = $pdo->prepare($sql);
 // exécuté la requete
 $query ->execute();
 // Puis sous quel format on la veut
 $movies = $query->fetchAll();
-$id = $_GET['id'];
+$slug = $_GET['slug'];
     
 }else{
     //fausse redirection
@@ -25,7 +27,7 @@ $id = $_GET['id'];
 <!-- boucle pour afficher le poster et le details de chaque film -->
 <?php 
 foreach  ($movies as $movie) { 
-    if($movie['id'] == $id){ ?>
+    if($movie['slug'] == $slug){ ?>
             <div class="container">
                 <p class='title'>Titre du film: <?php echo $movie['title']; ?></p>
                 <p class='slug'>Slug: <?php echo $movie['slug']; ?></p>
@@ -43,13 +45,15 @@ foreach  ($movies as $movie) {
                 <p class='created'>créé le: <?php echo $movie['created']; ?></p>
                 <p class='poster_flag'>Affiche du film: <?php echo $movie['poster_flag']; ?></p>
 
-                <a href="details.php?id=<?php echo $movie['id'];?>">
+                <a href="details.php?slug=<?php echo $movie['id'];?>">
                 <img src="posters/<?php echo $movie['id'] ?>.jpg" alt=""></a>
         
         
             </div>
     <?php }
-} ?>
+} 
+?>
+
 
 
 
