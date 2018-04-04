@@ -21,7 +21,7 @@ include('inc/header.php');
 				<?php foreach ($movies as $movie) { ?>
 					<div class="col-3">
 						<a href="details.php?slug=<?php echo $movie['slug']; ?>">
-							<img src="posters/<?php echo $movie['id'] ?>.jpg" alt="<?php echo $movie['title'] ?>">
+							<img src="posters/<?php echo $movie['slug'] ?>.jpg" alt="<?php echo $movie['title'] ?>">
 						</a>
 						<p class="title"> <?php echo $movie ['title'];?> </p>
 					</div>
