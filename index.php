@@ -18,6 +18,7 @@ include('inc/header.php');
 
  	<!-- Boucle pour afficher films -->
 	<div class="container">
+		
 		<div class="row">
 				<?php foreach ($movies as $movie) { ?>
 					<div class="col-3">
