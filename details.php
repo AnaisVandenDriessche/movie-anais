@@ -70,6 +70,18 @@ foreach  ($movies as $movie) {
 ?>
 
 
+<!-- - Bouton « à voir » -->
+
+    <!-- <a href="film_a_voir.php"><input type="button" name="A voir" value="film à voir"/></a> -->
+  
+	
 
 
+    <!-- //  - Bouton Retrait     -->
 
+    <!-- <a href="film_a_voir.php"><input type="button" name="Retrait" value="film à retirer"/></a> -->
+
+    
+
+    <a  href="film_a_voir.php?id=<?php echo $movie['id']; ?>">film à ajouter</a>
+    <a  href="film_a_voir.php?id=<?php echo $movie['id']; ?>">film à retirer</a>
