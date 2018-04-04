@@ -6,7 +6,7 @@ function debug($array){
 }
 
 function getImageMovie($id,$title){
-  $img = '<img src="posters.php.$id.'.jpg" alt="'.$title.'"/>';
+  $img = "<img src="posters'.$id.'.jpg" alt="'.$title.'"/>';
   return $img;
 }
  ?>
