@@ -3,7 +3,7 @@ include('inc/pdo.php');
 include('inc/function.php'); 
 
 	// Requette 
-	$sql = "SELECT * FROM movies_full";
+	$sql = "SELECT * FROM movies_full ORDER BY RAND()";
 	$query = $pdo->prepare($sql);
 	// exécuté la requete
 	$query ->execute();
