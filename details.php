@@ -10,14 +10,15 @@ include('inc/header.php');
  
 <?php
 if(!empty($_GET['slug']))  {
-$sql = "SELECT * FROM movies_full";
-$query = $pdo->prepare($sql);
-// exécuté la requete
-$query ->execute();
-// Puis sous quel format on la veut
-$movies = $query->fetchAll();
-$slug = $_GET['slug'];
+    $sql = "SELECT * FROM movies_full WHERE slug = :slug";
     
+    $query = $pdo->prepare($sql);
+    // exécuté la requete
+    $query ->execute();
+    // Puis sous quel format on la veut
+    $movies = $query->fetchAll();
+    $slug = $_GET['slug'];
+        
 }else{
     //fausse redirection
     die('404');
