@@ -17,4 +17,12 @@
 
         <a href="connexion.php"> connexion </a>
         <a href="inscription.php"> inscription </a>
+
+        <?php if(isLogged()){ ?>
+            <p>Connécté en tant que : <?php echo $_SESSION['user']['pseudo']; ?></p>
+            <a href="deconnexion.php"> Déconnexion </a>
+           <?php }
+        ?>
+        
+        
       </header>
