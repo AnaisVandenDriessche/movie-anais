@@ -10,19 +10,33 @@ include('inc/header.php');
  
 <?php
 if(!empty($_GET['slug']))  {
+
+    //protection XSS
+    $slug = trim(strip_tags($_GET['slug']));
+
+    //REQUETE SQL
     $sql = "SELECT * FROM movies_full WHERE slug = :slug";
     
     $query = $pdo->prepare($sql);
-    // exécuté la requete
+    $query->bindValue(':slug',$slug, PDO::PARAM_STR);
+    // exécuter la requete
     $query ->execute();
     // Puis sous quel format on la veut
     $movies = $query->fetchAll();
     $slug = $_GET['slug'];
+
+    if(!empty($movies)){
+
+    }else{
+        die('404');
+    }
         
 }else{
     //fausse redirection
     die('404');
 }
+
+
 ?>
 
 <!-- boucle pour afficher le poster et le details de chaque film -->
