@@ -108,3 +108,9 @@ function paginationIdea($page,$num,$count) {
 }
 
 ?>
+<?php
+function getImageMovie($id,$title){
+    $img ='<img src="posters' .$id.'.jpg" alt="'.$title.'" />';
+     return $img;
+}
+?>

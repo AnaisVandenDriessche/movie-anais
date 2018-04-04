@@ -10,6 +10,8 @@
 <?php
 include('inc/pdo.php');
 include('inc/function.php');
+// include('inc/index.php');
+
 
 include('inc/header.php'); 
 

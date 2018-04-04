@@ -4,29 +4,33 @@
 <?php include('inc/header.php'); ?>
 
 <?php
-$sql = "SELECT * FROM movies_full WHERE `id` = ROUND( RAND() * 9 ) + 1 ";
+$sql = "SELECT * FROM movies_full";
 $query = $pdo->prepare($sql);
 // exécuté la requete
 $query ->execute();
 // Puis sous quel format on la veut
 $movies = $query->fetchAll();
 
-?>
+?> 
 
-<?php
-echo '<pre>';
-print_r($movies);
-echo '</pre>';
- ?>
+<!-- <?php
+// echo '<pre>';
+// print_r($movies);
+// echo '</pre>';
+ ?> -->
 
 <div id="movies">
 	<?php foreach ($movies as $movie) { ?>
 	<div class="movie">
 		<p class="title"> <?php echo $movie ['title'];?> </p>
-		<a href="detail.php?id=<?php echo $movie['id']; ?>">
-			<?php echo getImageMovie($movie['id'],$movie['title']);?>
+		<a href="details.php?id=<?php echo $movie['id']; ?>">
+		<?php $img ='<src="posters' .$id.'.jpg" alt="'.$title.'" />';
+		return $img;
+	}
+	?>
+		
 		</a>
 	</div>
-<?php } ?>
+
 </div>
 <?php include('inc/footer.php') ?>
