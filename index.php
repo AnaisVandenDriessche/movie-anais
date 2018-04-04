@@ -19,18 +19,20 @@ $movies = $query->fetchAll();
 // echo '</pre>';
  ?> -->
 
-<div id="movies">
-	<?php foreach ($movies as $movie) { ?>
-	<div class="movie">
-		<p class="title"> <?php echo $movie ['title'];?> </p>
-		<a href="details.php?id=<?php echo $movie['id']; ?>">
-		<?php $img ='<src="posters' .$id.'.jpg" alt="'.$title.'" />';
-		return $img;
-	}
-	?>
-		
-		</a>
-	</div>
 
-</div>
+	<?php foreach ($movies as $movie) { ?>
+
+	<div class="container">
+		<div class="row">
+			<div class="col-4">
+				
+				<a href="details.php?id=<?php echo $movie['id']; ?>"><img src="posters/<?php echo $movie['id'] ?>.jpg" alt=""></a>
+				<p class="title"> <?php echo $movie ['title'];?> </p>
+			</div>
+		</div>
+	</div>
+	<?php }
+	?>
+
+
 <?php include('inc/footer.php') ?>

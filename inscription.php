@@ -1,15 +1,14 @@
 <?php
-session_start();
+// session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 
-/* Validation du FORM 
+/* Validation du FORM
 ====================== */
 $error = array();
 $success = false;
 
-// 
-
+//
 if(!empty($_POST['submitted'])){
     // Protection faille XXS
     ///////////////////////////////
@@ -28,14 +27,14 @@ if(!empty($_POST['submitted'])){
             }elseif(strlen($pseudo) > 100){
                 $error['pseudo'] = "Maximum 20 carctères";
             }else {
-    
-                $sql = "SELECT * FROM users 
+
+                $sql = "SELECT * FROM users
                         WHERE pseudo = :pseudo";
                 $query = $pdo->prepare($sql);
                 $query->bindValue(':pseudo',$pseudo, PDO::PARAM_STR);
                 $query->execute();
                 $pseudoexist = $query->fetch();
-    
+
                 if(!empty($pseudoexist)){
                     $error['pseudo'] = 'Cet identifiant existe déja';
                 }
@@ -43,7 +42,6 @@ if(!empty($_POST['submitted'])){
         } else {
             $error['pseudo'] = 'Veuillez renseigner ce champ';
         }
-
 
         // email
         if(!empty($email)){
@@ -87,7 +85,7 @@ if(!empty($_POST['submitted'])){
         // On insert dans la based e donnée
         $sql = "INSERT INTO users (pseudo, email, password, token, created_at, role)
                 VALUES (:pseudo, :email, :password, :token, NOW(), 'abonne')";
-                
+
                 $query = $pdo->prepare($sql);
                 // Protection injection sql
                 $query->bindValue(':pseudo',$pseudo,PDO::PARAM_STR);
@@ -95,13 +93,13 @@ if(!empty($_POST['submitted'])){
                 $query->bindValue(':password',$passwordhash,PDO::PARAM_STR);
                 $query->bindValue(':token',$token,PDO::PARAM_STR);
                 $query->execute();
-                
+
                 // Redirection vers connexion
                 header('Location: connexion.php');
-                
 
-    } 
-    
+
+    }
+
 }
 
 include('inc/header.php');
@@ -120,20 +118,20 @@ include('inc/header.php');
             <div class="form-group">
                 <label for="email">E-mail *</label>
                 <input type="email" class="form-control" name="email" id="email" placeholder="Votre E-mail" value="<?php if(!empty($_POST['email'])) { echo $_POST['email'];} ?>">
-                <?php errorMessageForm ($error,'email') ?>     
-                
+                <?php errorMessageForm ($error,'email') ?>
+
             </div>
             <div class="form-group">
                 <label for="password">Mot de passe *</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Votre mot de passe">
-                <?php errorMessageForm($error,'password') ?>                
+                <?php errorMessageForm($error,'password') ?>
             </div>
             <div class="form-group">
                 <label for="password_confirm">Répeter mot de passe *</label>
                 <input type="password" class="form-control" id="password_confirm" name="password_confirm" placeholder="Confirmer votre mot de passe">
-                <?php errorMessageForm($error,'password_confirm') ?>                
+                <?php errorMessageForm($error,'password_confirm') ?>
             </div>
-            
+
             <input type="submit" class="btn btn-primary" name="submitted" value="Inscription">
         </form>
     </div>
