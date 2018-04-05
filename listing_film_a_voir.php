@@ -1,8 +1,3 @@
-<!-- //requete pour afficher les films ajoutés via id , movie_id
-//verifier qque l'user est bien connecté, si non => DIE redirection
-<!-- //mettre les include header / footer ---session -->
-<!-- for each ou jointure -->
-
 <?php
 session_start();
 include('inc/pdo.php');
