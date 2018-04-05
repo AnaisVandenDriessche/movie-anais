@@ -72,16 +72,19 @@ include('inc/header.php');
             <div class="form-group">
                 <label for="pseudo">Identifiant ou E-mail *</label>
                 <input type="text" class="form-control" name="pseudo" id="pseudo" placeholder="Votre identifiant" value="<?php if(!empty($_POST['pseudo'])) { echo $_POST['pseudo'];} ?>">
-                <?php errorMessageForm($error,'pseudo') ?>
-               
+                <?php errorMessageForm($error,'pseudo') ?>             
             </div>
             
             <div class="form-group">
                 <label for="password">Mot de passe *</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="Votre mot de passe">
-                <?php errorMessageForm($error,'password') ?>
-                
-                              
+                <?php errorMessageForm($error,'password') ?>            
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="remember" >
+                <label class="form-check-label" for="defaultCheck1">
+                    Se souvenir de moi
+                </label>
             </div>
             <input type="submit" class="btn btn-primary" name="submitted" value="Connexion">
         </form>
