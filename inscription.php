@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 include('inc/pdo.php');
 include('inc/function.php');
 
@@ -96,8 +96,6 @@ if(!empty($_POST['submitted'])){
 
                 // Redirection vers connexion
                 header('Location: connexion.php');
-
-
     }
 
 }

@@ -11,7 +11,6 @@ include('inc/function.php');
 	// Puis sous quel format on la veut
 	$movies = $query->fetchAll();
 
-
 // Header
 include('inc/header.php'); 
 ?>

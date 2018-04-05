@@ -12,14 +12,9 @@
 <body>
 
   <div class="main header ">
+  
       <header>
-        <h1>  Voici nos films  </h1>
-
-        <a href="connexion.php">Connexion </a>
-        <a href="inscription.php">Inscription </a>
-        <a href="dashboard.php">Dashboard </a>
-        
-        <a href="index.php"> Accueil </a>
+        <h1>Backoffice</h1>
         
 
         <?php if(isLogged()){ ?>
