@@ -1,7 +1,6 @@
 <?php
-
-include('inc/function.php');
 session_start();
+include('inc/function.php');
 // connection a la BDD
 include('inc/pdo.php');
 $error  = array();
