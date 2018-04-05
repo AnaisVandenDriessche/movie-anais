@@ -4,12 +4,8 @@ include('inc/pdo.php');
 include('inc/function.php');
 
 
-include('inc/header.php'); 
-?>
-<a href="index.php">Retour vers page accueil</a>
 
- 
-<?php
+
 if(!empty($_GET['slug']))  {
 
     //protection XSS
@@ -22,11 +18,11 @@ if(!empty($_GET['slug']))  {
     $query->bindValue(':slug',$slug, PDO::PARAM_STR);
     // exécuter la requete
     $query ->execute();
-    // Puis sous quel format on la veut
-    $movies = $query->fetchAll();
+ 
+    $movie = $query->fetch();
     $slug = $_GET['slug'];
 
-    if(!empty($movies)){
+    if(!empty($movie)){
 
     }else{
         die('404');
@@ -38,12 +34,12 @@ if(!empty($_GET['slug']))  {
 }
 
 
-?>
 
-<!-- boucle pour afficher le poster et le details de chaque film -->
-<?php 
-foreach  ($movies as $movie) { 
-    if($movie['slug'] == $slug){ ?>
+include('inc/header.php'); 
+?>
+<a href="index.php">Retour vers page accueil</a>
+
+
             <div class="container">
                 <p class='title'>Titre du film: <?php echo $movie['title']; ?></p>
                 <p class='slug'>Slug: <?php echo $movie['slug']; ?></p>
@@ -66,23 +62,18 @@ foreach  ($movies as $movie) {
         
         
             </div>
-    <?php }
-} 
-?>
+
 
 
 <!-- - Bouton « à voir » -->
-
-    <!-- <a href="film_a_voir.php"><input type="button" name="A voir" value="film à voir"/></a> -->
+<!-- - Bouton "Retrait" pour supprimer le film à voir de la liste     -->
+<!-- faire une condition pour que le bouton s'affiche que si l'user est connecté -->
+<?php if(isLogged()){ ?>
+    <a  href="ajoutfilm.php?id=<?php echo $movie['id']; ?>">film à ajouter</a>
+    <a  href="ajoutfilm.php?id=<?php echo $movie['id']; ?>">film à retirer</a>
+           <?php }
+        ?>
   
-	
 
 
-    <!-- //  - Bouton Retrait     -->
-
-    <!-- <a href="film_a_voir.php"><input type="button" name="Retrait" value="film à retirer"/></a> -->
-
-    
-
-    <a  href="film_a_voir.php?id=<?php echo $movie['id']; ?>">film à ajouter</a>
-    <a  href="film_a_voir.php?id=<?php echo $movie['id']; ?>">film à retirer</a>
+     
