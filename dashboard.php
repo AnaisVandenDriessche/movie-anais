@@ -43,7 +43,7 @@ include('inc/header_dash.php');?>
                 <tr>
                     <th scope="col">Nombre de films</th>
                     <th scope="col">Nombre d'utilisateur</th>
-                    <th scope="col">5 Utilisateur inscrit par semaine</th>
+                    <th scope="col">5 Utilisateurs inscrit par semaine</th>
                     <th scope="col">Les 30 films les plus ajoutés dans la liste à voir</th>
                      
                 </tr>
