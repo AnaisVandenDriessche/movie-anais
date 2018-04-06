@@ -2,7 +2,6 @@
 include('inc/function.php');
 include('inc/pdo.php');
 
-
     // Requette nbre de film
     $sql = "SELECT COUNT(*)
     FROM movies_full";
