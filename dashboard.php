@@ -25,8 +25,6 @@ include('inc/pdo.php');
     $count_users = $query->fetchColumn();
     // debug($count);
 
-
-
 include('inc/header_dash.php');?>
 <!--  Main-Contain -->
     <div class="container">
