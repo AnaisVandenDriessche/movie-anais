@@ -87,9 +87,12 @@
 	// -	Consultation/Ajout/Modification/Supression de films
 	// -   Consultation/Modification/Supression d'utilisateurs
 
+
 // Côté design, assurez-vous qu'il soit différent du front.
 
 // Films | consultation
+//////////////////////////////
+
 // Une page affiche, sous forme de tableau, la liste des films présents en base de données (un peu comme dans phpMyAdmin). Chaque ligne du tableau affiche donc des informations sur un seul film, ainsi que quelques actions reliées à ce film. Voici plus de détails :
 // •	Colonnes à afficher : id, title, year, rating, actions
 // •	La colonne actions comportent 3 icônes : « voir sur le site », « modifier », « effacer »

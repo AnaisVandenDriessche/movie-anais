@@ -11,9 +11,9 @@ Header
     font-size: 2rem;
 }
 
-/* header .bg-dark {
-    background-color: #ffe100!important;
-} */
+header .bg-dark {
+    background-color: #feae4d!important;
+}
 header a{
     color: rgb(255, 255, 255);
     background-color: transparent;
@@ -29,12 +29,15 @@ header a:hover {
 .jumbotron {
     padding: 2rem 1rem;
     margin-bottom: 2rem;
-    /* background-image: url(movie.jpg);
-    background-position: center; */
-    background-color: #ffe100;
+    background-image: url(bo.jpg);
+    background-position: center;
     background-size: cover;
+    /* background-color: #ffe100; */
+    /* background-color: #ff0095; */
     height: 450px;
+    border-radius: 0rem;
 }
+
 .jumbotron-heading{
     color: #fff;
     font-family: 'Leckerli One', cursive;

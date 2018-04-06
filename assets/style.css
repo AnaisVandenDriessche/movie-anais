@@ -33,6 +33,7 @@ header a:hover {
     background-position: center;
     background-size: cover;
     height: 450px;
+    border-radius: 0rem;    
 }
 .jumbotron-heading{
     color: #fff;

@@ -29,7 +29,9 @@ include('inc/header_dash.php');?>
                     <th scope="col">Titre</th>
                     <th scope="col">Date</th>
                     <th scope="col">Genres</th>
-                    <th scope="col">Note</th>        
+                    <th scope="col">Note</th> 
+                    <th scope="col">Action</th>        
+                           
                            
                 </tr>
             </thead>
@@ -39,7 +41,6 @@ include('inc/header_dash.php');?>
                 <tr>
                     <td>
                         <p><?php echo $film['title']?></p>
-                        <span><a href="editpost.php?id=<?php echo $film['id']?>">Editer </a></span>
                     </td>
                     <td>
                         <p class="font-italic"><?php echo $film['year']?></p>
@@ -50,7 +51,12 @@ include('inc/header_dash.php');?>
                     </td>
                     <td>
                         <p><?php echo $film['rating']?></p>
-                    </td>                  
+                    </td>  
+                    <td>
+                        <span><a href="details.php?slug=<?php echo $film['slug']?>">Voir sur le site </a></span>
+                        <span><a href="editpost.php?slug=<?php echo $film['slug']?>">Modifier - </a></span>
+                        <span><a href="editpost.php?id=<?php echo $film['id']?>">Effacer </a></span>                        
+                    </td>                
                 </tr>
             </tbody>
                 <?php }?>
