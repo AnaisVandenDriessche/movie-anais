@@ -27,9 +27,7 @@ if (!empty($_GET['submitted'])) {
 							  $sql .=  " AND popularity BETWEEN $popularity1 AND $popularity2";
 						}
 				}
-
-
-						// debug($movies);
+		// debug($movies);
 
 		//Genres
 			 $genres = $_GET['genres'] ;
@@ -46,25 +44,19 @@ if (!empty($_GET['submitted'])) {
 
 			 }
 
-			 // final request
-					 $sql .= ' ORDER BY RAND() LIMIT 5';
+			// final request
+			$sql .= ' ORDER BY RAND() LIMIT 5';
 
-
-					// $sql .=  'LIMIT 10';
-					$query = $pdo ->prepare($sql);
-					$query->execute();
-					$movies = $query->fetchAll();
-					 debug($movies);
+			// $sql .=  'LIMIT 10';
+			$query = $pdo ->prepare($sql);
+			$query->execute();
+			$movies = $query->fetchAll();
+			// debug($movies);
 }
-debug($error);
+// debug($error);
 ?>
 
-
 <?php
-
-
-
-
 // Requete
 $sql = 'SELECT * FROM movies_full ORDER BY RAND()';
 $query = $pdo ->prepare($sql);
@@ -78,97 +70,105 @@ include('inc/header.php');
 ?>
 
 <div class="container">
+	<!-- Formulaire -->
+	<form method="get" action="" >
+		<div class="form-row">
+			<!-- Fantasy -->
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" name="genres[]" type="checkbox" value="Fantasy">
+				<label class="form-check-label" for="genres[]">Fantasy</label>
+			</div>
+			<!-- Drama -->
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" name="genres[]" type="checkbox" value="Drama">
+				<label class="form-check-label" for="genres[]">Drama</label>
+			</div>
+			<!-- Adventure -->
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" name="genres[]" type="checkbox" value="Adventure">
+				<label class="form-check-label" for="defaultCheck3">Adventure</label>
+			</div>
+			<!-- Comedy -->
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" name="genres[]" type="checkbox" value="Comedy">
+				<label class="form-check-label" for="form-check-label" for="genres[]">Comedy</label>
+			</div>
+			<!-- Thriller -->
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" name="genres[]" type="checkbox" value="Crime">
+				<label class="form-check-label" for="genres[]">Thriller</label>
+			</div>
+			<!-- Romance -->
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" name="genres[]" type="checkbox" value="Romance">
+				<label class="form-check-label" for="genres[]">Romance</label>
+			</div>
+			<!-- Mystery -->
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" name="genres[]" type="checkbox" value="Mystery">
+				<label class="form-check-label" for="form-check-label">Mystery</label>
+			</div>
+			<!-- S-F -->
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" name="genres[]" type="checkbox" value="Sci-Fi">
+				<label class="form-check-label" for="form-check-label">Science-Fiction</label>
+			</div>
 
-	<form method="get" action="">
-
-		<div class="form-check">
-  		<input class="form-check-input" name="genres[]" type="checkbox" value="Fantasy">
-    		<label class="form-check-label" for="defaultCheck1">   Fantasy </label>
-  	</div>
-
-		<div class="form-check">
-  		<input class="form-check-input" name="genres[]" type="checkbox" value="Drama">
-  			<label class="form-check-label" for="defaultCheck2">   Drama </label>
+			<div class="form-check form-check-inline">
+				<input class="form-check-input" name="genres[]" type="checkbox" value="Horror">
+				<label class="form-check-label" for="form-check-label">Horreur</label>
+			</div>
 		</div>
-
-		<div class="form-check">
-  		<input class="form-check-input" name="genres[]" type="checkbox" value="Adventure">
-  			<label class="form-check-label" for="defaultCheck3"> Adventure	</label>
-		</div>
-
-
-		<div class="form-check">
-			<input class="form-check-input" name="genres[]" type="checkbox" value="Comedy">
-				<label for="form-check-label" for="defaultCheck3" > Comedy </label>
-		</div>
-
-		<div class="form-check">
-			<input class="form-check-input" name="genres[]" type="checkbox" value="Crime">
-				<label for="form-check-label">	Thriller </label>
-		</div>
-
-		<div class="form-check">
-			<input class="form-check-input" name="genres[]" type="checkbox" value="Romance">
-				<label for="form-check-label">	Romance </label>
-		</div>
-
-		<div class="form-check">
-			<input class="form-check-input" name="genres[]" type="checkbox" value="Mystery">
-				<label for="form-check-label"> Mystery </label>
-		</div>
-
-		<div class="form-check">
-			<input class="form-check-input" name="genres[]" type="checkbox" value="Sci-Fi">
-				<label for="form-check-label"> Science-Fiction </label>
-		</div>
-
-		<div class="form-check">
-			<input class="form-check-input" name="genres[]" type="checkbox" value="Horror">
-				<label for="form-check-label"> Horreur </label>
-		</div>
-
-<!-- Select Année de procduction  -->
-
-		<h2> Année de production entre </h2>
-				<label for="year">  </label>
-				<select class="year" name="year1">
-						<?php for ($i=date('Y'); $i>=1900 ;  $i--) {
-								echo "<option>$i</option>";
-									}
-	 					?>
-				</select>
-
-				<label for="year"> </label>
-				<select class="year" name="year2">
-						<?php for ($i=date('Y'); $i>=1900 ;  $i--) {
-								echo "<option>$i</option>";
-									}
-	 					?>
-		  	</select>
-
-<!-- Select Niveau de Popularité  -->
-
-
-		<h2> La popularité  </h2>
-			<label for="popularity">  </label>
-			<select class="popularity2" name="popularity1">
-					<?php for ($i= 1; $i<100 ;  $i++) {
-							echo "<option>$i</option>";
-								}
-	 				?>
-			 </select>
-
-
-		<label for="popularity">  </label>
-		<select class="popularity2" name="popularity2">
-				<?php for ($i= 1 ; $i<100 ;  $i++) {
+		<div class="form-row mb-3 mt-3 ">
+			<!-- Select Année de procduction  -->
+			<div class="col">
+				<!-- <p class="font-weight-bold">Choisir année de production</p> -->
+				<label class="font-weight-bold" for="year1">Année de production de :</label>
+				<select class="form-control" name="year1">
+					<option value="">---</option>
+					<?php for ($i=date('Y'); $i>=1900 ;  $i--) {
 						echo "<option>$i</option>";
-					    }
-	 			?>
-		</select>
+					}
+					?>
+				</select>
+			</div>
+			<div class="col">
+				<label class="font-weight-bold" for="year2">A :</label>
+				<select class="form-control" name="year2">
+					<option value="">---</option>			
+					<?php for ($i=date('Y'); $i>=1900 ;  $i--) {
+						echo "<option>$i</option>";
+						}
+					?>
+				</select>
+			</div>
+			<div class="col">
+			<!-- Select Niveau de Popularité  -->
+				<!-- <p class="font-weight-bold">La popularité</p>		 -->
+				<label class="font-weight-bold" for="popularity1">Popularité de :</label>
+				<select class="form-control" name="popularity1">
+					<option value="">---</option>				
+					<?php for ($i= 1; $i<100 ;  $i++) {
+						echo "<option>$i</option>";
+						}
+					?>
+				</select>
+			</div>
+			<div class="col">
+				<label class="font-weight-bold" for="popularity2">A :</label>
+				<select class="form-control" name="popularity2">
+					<option value="">---</option>				
+					<?php for ($i= 1 ; $i<100 ;  $i++) {
+						echo "<option>$i</option>";
+						}
+					?>
+				</select>
+			</div>	
+		</div>
 
-    <input type="submit" class="btn btn-primary" name="submitted" value="Rechercher" />
-
+			<!-- Submit -->
+			<input type="submit" class="btn btn-warning mt-3 text-center" name="submitted" value="Rechercher" />	
+		</div>
 	</form>
 </div>
 

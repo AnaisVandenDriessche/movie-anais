@@ -1,0 +1,67 @@
+body {
+    font-family: 'Roboto', sans-serif;
+}
+/* 
+============
+Header 
+============*/
+.navbar-dark .navbar-brand {
+    color: #009dff;
+    font-family: 'Leckerli One', cursive;
+    font-size: 2rem;
+}
+
+/* header .bg-dark {
+    background-color: #ffe100!important;
+} */
+header a{
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+}
+header a:hover {
+    color: #ff2600;
+    text-decoration: underline;
+}
+/* .sr-only{
+    color: #ffe300;
+} */
+
+.jumbotron {
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    /* background-image: url(movie.jpg);
+    background-position: center; */
+    background-color: #ffe100;
+    background-size: cover;
+    height: 450px;
+}
+.jumbotron-heading{
+    color: #fff;
+    font-family: 'Leckerli One', cursive;
+    font-size: 6rem;
+}
+
+/* 
+==================
+Main contain 
+==================*/
+/* Formulaire index */
+
+form{
+    border : solid 1px;
+    border-color: #e0e0e0;
+    background-color: #ffe300;
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+/* 
+=============
+Footer
+============= */
+
+footer{
+    margin-bottom: 2rem;
+    background-color: #131212;
+    height: 100px;
+}
